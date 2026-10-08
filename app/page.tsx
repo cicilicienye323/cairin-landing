@@ -1,4 +1,5 @@
 import PayoutCard from "./PayoutCard";
+import WaitlistForm from "./WaitlistForm";
 
 const PROBLEMS = [
   ["Wrong balances", "A forgotten refund, a wrong fee, a rounding error. The balance a seller sees slowly drifts from the money that actually exists."],
@@ -110,6 +111,7 @@ export default function Home() {
           <div className={wrap}>
             <h2 className={h2}>Join the waitlist</h2>
             <p className={sub}>cairin is in private preview. Leave your email and we will reach out when a spot opens.</p>
+            <WaitlistForm />
           </div>
         </section>
       </main>
