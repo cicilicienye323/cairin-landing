@@ -1,4 +1,6 @@
 import PayoutCard from "./PayoutCard";
+import ConsentBanner from "./ConsentBanner";
+import CookieSettingsButton from "./CookieSettingsButton";
 import WaitlistForm from "./WaitlistForm";
 import { DESCRIPTION, SITE_URL } from "./site";
 
@@ -51,7 +53,7 @@ export default function Home() {
           <a href="#problem" className="hidden md:inline">Problem</a>
           <a href="#features" className="hidden md:inline">Features</a>
           <a href="#how-it-works" className="hidden md:inline">How it works</a>
-          <a href="#waitlist" className={`${btn} px-3.5 py-2`}>Join the waitlist</a>
+          <a href="#waitlist" data-waitlist="nav" className={`${btn} px-3.5 py-2`}>Join the waitlist</a>
         </span>
       </nav>
 
@@ -68,7 +70,7 @@ export default function Home() {
                 cairin keeps every seller balance in a double-entry ledger and releases payouts only after two people sign off, so money never drifts, doubles, or walks out the door.
               </p>
               <div className="flex flex-col gap-2.5 sm:flex-row">
-                <a href="#waitlist" className={btn}>Join the waitlist</a>
+                <a href="#waitlist" data-waitlist="hero" className={btn}>Join the waitlist</a>
                 <a href="#how-it-works" className={`${btn} bg-transparent text-roast`}>See how it works</a>
               </div>
               <p className="mt-3.5 text-[13px] text-ink-3">Early access for small marketplaces. No card needed.</p>
@@ -132,8 +134,12 @@ export default function Home() {
 
       <footer className="mx-auto flex max-w-[1040px] flex-col gap-1.5 border-t border-line px-5 py-5 text-[13px] text-ink-3 sm:flex-row sm:justify-between sm:px-16 sm:py-6">
         <span>cairin, a portfolio lab</span>
-        <a href="https://github.com/cicilicienye323/cairin-landing">View the code on GitHub</a>
+        <span className="flex gap-3">
+          <CookieSettingsButton />
+          <a href="https://github.com/cicilicienye323/cairin-landing">View the code on GitHub</a>
+        </span>
       </footer>
+      <ConsentBanner />
     </>
   );
 }

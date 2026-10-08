@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackSignup } from "./tracking";
 
 // Demo form: the browser validates the email, nothing is sent or stored.
 export default function WaitlistForm() {
@@ -12,6 +13,7 @@ export default function WaitlistForm() {
       onSubmit={(e) => {
         e.preventDefault();
         setJoined(true);
+        trackSignup();
       }}
     >
       <div className="flex flex-col gap-2.5 sm:flex-row">
