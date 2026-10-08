@@ -1,5 +1,18 @@
 import PayoutCard from "./PayoutCard";
 import WaitlistForm from "./WaitlistForm";
+import { DESCRIPTION, SITE_URL } from "./site";
+
+// No aggregateRating or review: cairin has no real users yet, and ratings are never invented.
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "cairin",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description: DESCRIPTION,
+  url: SITE_URL,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
 
 const PROBLEMS = [
   ["Wrong balances", "A forgotten refund, a wrong fee, a rounding error. The balance a seller sees slowly drifts from the money that actually exists."],
@@ -31,6 +44,7 @@ const wrap = "mx-auto max-w-[1040px] px-5 py-10 sm:px-16 sm:py-14";
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
       <nav className="mx-auto flex max-w-[1040px] items-center justify-between border-b border-line px-5 py-4 sm:px-16 sm:py-5">
         <span className="font-serif text-[22px] font-medium">cairin</span>
         <span className="flex items-center gap-6 text-sm text-ink-2">
