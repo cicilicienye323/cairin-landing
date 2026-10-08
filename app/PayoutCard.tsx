@@ -13,10 +13,10 @@ const STATUSES = [
 ];
 
 const STEPS = [
-  ["Requested", "Dina, seller"],
-  ["Approved", "Raka, approver"],
-  ["Released", "Sari, releaser"],
-  ["Paid", "bank confirmed"],
+  ["Requested", "Dina, ", "seller"],
+  ["Approved", "Raka, ", "approver"],
+  ["Released", "Sari, ", "releaser"],
+  ["Paid", "", "bank confirmed"],
 ];
 
 const PAID = STATUSES.length - 1;
@@ -50,7 +50,9 @@ export default function PayoutCard() {
         <div>
           <small className="block text-xs text-ink-3">Payout #4821</small>
           <div className="font-serif text-[26px] leading-tight sm:text-[30px]">$2,450.00</div>
-          <div className="text-[13px] text-ink-2">to Dina&apos;s Batik Store, bank •••• 2207</div>
+          <div className="text-[13px] text-ink-2">
+            to Dina&apos;s Batik Store<span className="hidden sm:inline">, bank •••• 2207</span>
+          </div>
         </div>
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
@@ -68,7 +70,7 @@ export default function PayoutCard() {
       </div>
 
       <ul className="mb-3.5 border-t border-line">
-        {STEPS.map(([name, who], i) => (
+        {STEPS.map(([name, person, role], i) => (
           <li key={name} className="grid grid-cols-[22px_1fr_auto] items-center gap-2.5 border-b border-line py-2 text-sm">
             <span className="relative size-[18px] rounded-full border-[1.5px] border-line">
               <motion.span
@@ -80,7 +82,7 @@ export default function PayoutCard() {
               </motion.span>
             </span>
             <span>
-              {name} <span className="text-xs text-ink-3">· {who}</span>
+              {name} <span className="text-xs text-ink-3">· <span className="hidden sm:inline">{person}</span>{role}</span>
             </span>
             {i === 2 ? (
               <motion.span
