@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Tokens copied from cairin's design system (coffee theme). Source: sien-docs/design-system.md */
+@theme {
+  --color-espresso: #2a1a12;
+  --color-roast: #5c3820;
+  --color-caramel: #c58a4f;
+  --color-latte: #e9d6bf;
+  --color-crema: #f6efe4;
+  --color-foam: #fffcf7;
+  --color-line: #e8dccb;
+  --color-ink-2: #6e5a4c;
+  --color-ink-3: #7d6a5c;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+}
