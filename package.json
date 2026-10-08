@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "vitest run --maxWorkers=2"
+    "test": "vitest run --maxWorkers=2 --exclude \"sien-docs/**\""
   },
   "dependencies": {
+    "motion": "^14.0.0",
     "next": "^16.4.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.4",
     "@types/react": "^19.3.0",

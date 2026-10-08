@@ -11,6 +11,71 @@
   --color-line: #e8dccb;
   --color-ink-2: #6e5a4c;
   --color-ink-3: #7d6a5c;
+  --color-ok: #3f6b42;
+  --color-ok-bg: #e7efe2;
+  --color-warn: #8a560c;
+  --color-warn-bg: #f7ebcf;
+  --color-bark: #3a261b;
+  --color-bark-line: #4a3224;
   --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --font-mono: Consolas, "Cascadia Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero: only decoration moves, the heading text itself is never hidden. */
+.underline-once {
+  position: relative;
+  white-space: nowrap;
+}
+.underline-once::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 2px 0;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-caramel);
+  transform-origin: left;
+  animation: underline 1s 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes underline {
+  from { transform: scaleX(0); }
+}
+
+.glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(197 138 79 / 0.28), rgb(197 138 79 / 0) 65%);
+  top: -160px;
+  right: -120px;
+  pointer-events: none;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  to { transform: translate(-140px, 120px); }
+}
+
+/* Sections fade in on scroll with CSS scroll-driven animations. Browsers without support,
+   and visitors without JavaScript, simply see the content. */
+@supports (animation-timeline: view()) {
+  .fade-in {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
 }
