@@ -99,6 +99,9 @@ export function setConsent(value: Consent) {
   } else if (loaded) {
     win.gtag?.("consent", "update", consentAll("denied"));
     win.fbq?.("consent", "revoke");
+    // Loaded tags cannot be removed, and GA4 enhanced measurement keeps sending scroll
+    // with the old consent state. A reload starts again with no tag on the page.
+    location.reload();
   }
 }
 
